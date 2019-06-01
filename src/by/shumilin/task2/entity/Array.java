@@ -1,6 +1,6 @@
 package by.shumilin.task2.entity;
 
-import by.shumilin.exception.ArrayNotExsistExeption;
+import by.shumilin.exception.ArrayNotExistException;
 
 public class Array {
     int[][] arr;
@@ -13,9 +13,9 @@ public class Array {
         this.arr = arr;
     }
 
-    public static void sortByLineSumDecrease(int[][] arr) throws ArrayNotExsistExeption {
+    public static void sortByLineSumDecrease(int[][] arr) throws ArrayNotExistException {
         if (arr == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -26,9 +26,9 @@ public class Array {
         }
     }
 
-    public static void sortByLineSumIncrease(int[][] arr) throws ArrayNotExsistExeption {
+    public static void sortByLineSumIncrease(int[][] arr) throws ArrayNotExistException {
         if (arr == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -47,9 +47,9 @@ public class Array {
         return result;
     }
 
-    public static void sortByLineMaxElementIncrease(int[][] arr) throws ArrayNotExsistExeption {
+    public static void sortByLineMaxElementIncrease(int[][] arr) throws ArrayNotExistException {
         if (arr == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -60,9 +60,9 @@ public class Array {
         }
     }
 
-    public static void sortByLineMaxElementDecrease(int[][] arr) throws ArrayNotExsistExeption {
+    public static void sortByLineMaxElementDecrease(int[][] arr) throws ArrayNotExistException {
         if (arr == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -83,9 +83,9 @@ public class Array {
         return max;
     }
 
-    public static void sortByLineMinElementDecrease(int[][] arr) throws ArrayNotExsistExeption {
+    public static void sortByLineMinElementDecrease(int[][] arr) throws ArrayNotExistException {
         if (arr == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -96,9 +96,9 @@ public class Array {
         }
     }
 
-    public static void sortByLineMinElementIncrease(int[][] arr) throws ArrayNotExsistExeption {
+    public static void sortByLineMinElementIncrease(int[][] arr) throws ArrayNotExistException {
         if (arr == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {

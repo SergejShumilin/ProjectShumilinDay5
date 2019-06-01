@@ -1,6 +1,6 @@
 package by.shumilin.task1.runner;
 
-import by.shumilin.exception.ArrayNotExsistExeption;
+import by.shumilin.exception.ArrayNotExistException;
 import by.shumilin.task1.entity.Array;
 
 import java.io.File;
@@ -16,7 +16,7 @@ public class Run {
             System.out.println(array);
 //            System.out.println(array.binarySearch(7));
 //            System.out.println(array.getThreeDigitsNumber());
-        } catch (ArrayNotExsistExeption arrayNotExsistExeption) {
+        } catch (ArrayNotExistException arrayNotExsistExeption) {
             arrayNotExsistExeption.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();

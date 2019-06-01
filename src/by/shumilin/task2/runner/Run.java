@@ -1,6 +1,6 @@
 package by.shumilin.task2.runner;
 
-import by.shumilin.exception.ArrayNotExsistExeption;
+import by.shumilin.exception.ArrayNotExistException;
 import by.shumilin.task2.entity.Array;
 
 import java.util.Arrays;
@@ -23,7 +23,7 @@ public class Run {
 //        Array.sortByLineMaxElementDecrease(arr);
 //        Array.sortByLineMinElementDecrease(arr);
 //        Array.sortByLineMinElementIncrease(arr);
-        } catch (ArrayNotExsistExeption arrayNotExsistExeption) {
+        } catch (ArrayNotExistException arrayNotExsistExeption) {
             arrayNotExsistExeption.printStackTrace();
         }
         for (int i = 0; i < arr.length; i++) {

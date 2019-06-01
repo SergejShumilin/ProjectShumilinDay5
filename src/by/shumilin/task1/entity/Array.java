@@ -2,12 +2,9 @@ package by.shumilin.task1.entity;
 
 
 
-import by.shumilin.exception.ArrayNotExsistExeption;
-import com.sun.jmx.remote.internal.ArrayNotificationBuffer;
+import by.shumilin.exception.ArrayNotExistException;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
@@ -20,9 +17,9 @@ public class Array {
         this.arr = arr;
     }
 
-    public void sortBubble() throws ArrayNotExsistExeption {
+    public void sortBubble() throws ArrayNotExistException {
         if (arr == null) {
-        throw new ArrayNotExsistExeption("Массив не существует");
+        throw new ArrayNotExistException("Массив не существует");
         }
         for (int barrier = arr.length - 1; barrier > 0; barrier--) {
             for (int index = 0; index < barrier; index++) {
@@ -33,9 +30,9 @@ public class Array {
         }
     }
 
-    public void sortSelection() throws ArrayNotExsistExeption {
+    public void sortSelection() throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length; i++) {
             int min = i;
@@ -48,10 +45,10 @@ public class Array {
         }
     }
 
-    public void sortInsert() throws ArrayNotExsistExeption {
+    public void sortInsert() throws ArrayNotExistException {
 
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         long value;
         for (int i = 1; i < arr.length; i++) {
@@ -71,9 +68,9 @@ public class Array {
         arr[second] = tmp;
     }
 
-    public long binarySearch(int element) throws ArrayNotExsistExeption {
+    public long binarySearch(int element) throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
 
         int position;
@@ -93,10 +90,10 @@ public class Array {
         return (first <= last) ? position : -1;
     }
 
-    public long maxElement() throws ArrayNotExsistExeption {
+    public long maxElement() throws ArrayNotExistException {
 
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         long max = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -107,9 +104,9 @@ public class Array {
         return max;
     }
 
-    public long minElement() throws ArrayNotExsistExeption {
+    public long minElement() throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         long min = arr[0];
         for (int i = 0; i < arr.length; i++) {
@@ -120,9 +117,9 @@ public class Array {
         return min;
     }
 
-    public List<Long> getSimpleNumbers() throws ArrayNotExsistExeption {
+    public List<Long> getSimpleNumbers() throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         List<Long> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
@@ -143,9 +140,9 @@ public class Array {
         return true;
     }
 
-    public List<Long> getThreeDigitsNumber() throws ArrayNotExsistExeption {
+    public List<Long> getThreeDigitsNumber() throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         List<Long> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
@@ -161,18 +158,18 @@ public class Array {
         return list;
     }
 
-    public void fillArrayRandom(Random random) throws ArrayNotExsistExeption {
+    public void fillArrayRandom(Random random) throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length; i++) {
             arr[i] = random.nextInt(arr.length);
         }
     }
 
-    public void fillArrayScanner(Scanner scanner) throws ArrayNotExsistExeption {
+    public void fillArrayScanner(Scanner scanner) throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < arr.length; i++) {
             while (!scanner.hasNextInt()) {
@@ -182,17 +179,17 @@ public class Array {
         }
     }
 
-    public void fillArrayFromFile(File file) throws IOException, ArrayNotExsistExeption {
+    public void fillArrayFromFile(File file) throws IOException, ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
 
 
     }
 
-    public List<Long> getFibonacciNumbers() throws ArrayNotExsistExeption {
+    public List<Long> getFibonacciNumbers() throws ArrayNotExistException {
         if (arr == null) {
-            throw new ArrayNotExsistExeption("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         List<Long> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {

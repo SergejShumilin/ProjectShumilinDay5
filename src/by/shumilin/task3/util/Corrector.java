@@ -1,9 +1,7 @@
 package by.shumilin.task3.util;
 
-import by.shumilin.exception.ArrayNotExsistExeption;
-import org.w3c.dom.stylesheets.LinkStyle;
+import by.shumilin.exception.ArrayNotExistException;
 
-import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -13,19 +11,17 @@ public class Corrector {
 
     public static void fillArrayConsole(Scanner scanner, String[] strings) {
         for (int i = 0; i < strings.length; i++) {
-                strings[i] = scanner.nextLine();
+            strings[i] = scanner.nextLine();
         }
     }
 
-    public static void fillArrayFile(Scanner scanner, List<String> strings) throws IOException {
-        while (scanner.hasNext()) {
-            strings.add(scanner.nextLine());
-        }
+    public static void fillArrayFile(FileReader reader, List<String> strings) throws IOException {
+
     }
 
-    public static void changeLetter(String[] text, int k, char newChar) throws ArrayNotExsistExeption {
-        if (text == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+    public static void changeLetter(String[] text, int k, char newChar) throws ArrayNotExistException {
+        if (text == null) {
+            throw new ArrayNotExistException("Массив не существует");
         }
         char[] word;
         for (int i = 0; i < text.length; i++) {
@@ -38,43 +34,30 @@ public class Corrector {
     }
 
     /*метод можно применять для заданий 2-4, передавая подходящее под условие регулярное выражение*/
-    public static void correctWord(String[] strings, String regex, String text) throws ArrayNotExsistExeption {
-        if (text == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+    public static void correctWord(String[] strings, String regex, String text) throws ArrayNotExistException {
+        if (text == null) {
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < strings.length; i++) {
             strings[i] = strings[i].replaceAll(regex, text);
         }
     }
 
-//    public static void subWord(String[] strings, String regex, String word){
-//        for (int i = 0; i < strings.length; i++) {
-//            strings[i] = strings[i].replaceAll(regex, word);
-//        }
-//    }
-//
-//    public static void replace(String[] strings, String regex) {
-//        for (int i = 0; i < strings.length; i++) {
-//            strings[i] = strings[i].replaceAll(regex, "");
-//        }
-//    }
-
-    public static void formatText(String[] strings, int lengthWord) throws ArrayNotExsistExeption {
-        if (strings == null){
-            throw new ArrayNotExsistExeption("Массив не существует");
+    public static void formatText(String[] strings, int lengthWord) throws ArrayNotExistException {
+        if (strings == null) {
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < strings.length; i++) {
-            strings[i] = formatText(strings[i], lengthWord);
+            strings[i] = formatString(strings[i], lengthWord);
         }
     }
 
-    private static String formatText(String incomingText, int lengthWord) {
+    private static String formatString(String incomingText, int lengthWord) {
         StringBuilder sb = new StringBuilder();
-        String[] strArr = incomingText.split(" ");
-        for (int i = 0; i < strArr.length; i++) {
-
-            if ((strArr[i].length() % lengthWord != 0) && !isVowel(strArr[i])) {
-                sb.append(strArr[i]).append(" ");
+        String[] str = incomingText.split(" ");
+        for (int i = 0; i < str.length; i++) {
+            if ((str[i].length() % lengthWord != 0) && !isVowel(str[i])) {
+                sb.append(str[i]).append(" ");
             }
         }
 
@@ -93,10 +76,6 @@ public class Corrector {
                 return true;
             default:
                 return false;
-
         }
     }
-
-
-
 }

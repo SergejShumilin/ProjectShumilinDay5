@@ -1,6 +1,6 @@
 package by.shumilin.task1.entity;
 
-import by.shumilin.exception.ArrayNotExsistExeption;
+import by.shumilin.exception.ArrayNotExistException;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -9,8 +9,8 @@ import java.util.Random;
 
 public class ArrayTest {
 
-    @Test(expected = ArrayNotExsistExeption.class)
-    public void fillArrayRandom_Not_Exist_Array() throws ArrayNotExsistExeption {
+    @Test(expected = ArrayNotExistException.class)
+    public void fillArrayRandom_Not_Exist_Array() throws ArrayNotExistException {
         Array array = new Array();
         long expected = 5;
 
@@ -21,8 +21,8 @@ public class ArrayTest {
         Assert.assertEquals(expected, actual);
     }
 
-    @Test(expected = ArrayNotExsistExeption.class)
-    public void fillArrayRandom_Not_Empty_Array() throws ArrayNotExsistExeption {
+    @Test(expected = ArrayNotExistException.class)
+    public void fillArrayRandom_Not_Empty_Array() throws ArrayNotExistException {
         Array array = new Array();
         long[] data = new long[10];
         array.setArr(data);
