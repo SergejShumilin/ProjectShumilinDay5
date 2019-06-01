@@ -1,28 +1,28 @@
 package by.shumilin.task1.entity;
 
-import by.shumilin.task1.exception.ArrayNotExistExeption;
+
+
+import by.shumilin.exception.ArrayNotExsistExeption;
+import com.sun.jmx.remote.internal.ArrayNotificationBuffer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.io.IOException;
+import java.util.*;
 
 public class Array {
-    private int[] arr;
+    private long[] arr;
 
-    public Array() {
-    }
+    public Array() {    }
 
-    public Array(int[] arr) {
+    public Array(long[] arr){
         this.arr = arr;
     }
 
-    public void sortBubble() throws ArrayNotExistExeption {
+    public void sortBubble() throws ArrayNotExsistExeption {
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+        throw new ArrayNotExsistExeption("Массив не существует");
         }
         for (int barrier = arr.length - 1; barrier > 0; barrier--) {
             for (int index = 0; index < barrier; index++) {
@@ -33,9 +33,9 @@ public class Array {
         }
     }
 
-    public void sortSelection() throws ArrayNotExistExeption {
+    public void sortSelection() throws ArrayNotExsistExeption {
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
         for (int i = 0; i < arr.length; i++) {
             int min = i;
@@ -48,11 +48,12 @@ public class Array {
         }
     }
 
-    public void sortInsert() throws ArrayNotExistExeption {
-        int value;
+    public void sortInsert() throws ArrayNotExsistExeption {
+
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
+        long value;
         for (int i = 1; i < arr.length; i++) {
             value = arr[i];
             int j = i - 1;
@@ -65,41 +66,39 @@ public class Array {
     }
 
     private void swap(int first, int second) {
-        int tmp = arr[first];
+        long tmp = arr[first];
         arr[first] = arr[second];
         arr[second] = tmp;
     }
 
-    /*не рабочий*/
-    public int binarySearch(int item) throws ArrayNotExistExeption {
+    public long binarySearch(int element) throws ArrayNotExsistExeption {
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
 
         int position;
         int first = 0;
         int last = arr.length;
-        // для начала найдем индекс среднего элемента массива
+
         position = (first + last) / 2;
 
-        while ((arr[position] != item) && (first <= last)) {
-            if (arr[position] > item) {  // если число заданного для поиска
-                last = position - 1; // уменьшаем позицию на 1.
+        while ((arr[position] != element) && (first <= last)) {
+            if (arr[position] > element) {
+                last = position - 1;
             } else {
-                first = position + 1;    // иначе увеличиваем на 1
+                first = position + 1;
             }
             position = (first + last) / 2;
         }
         return (first <= last) ? position : -1;
     }
 
-    public int findMaxElement() throws ArrayNotExistExeption {
+    public long maxElement() throws ArrayNotExsistExeption {
 
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
-
-        int max = arr[0];
+        long max = arr[0];
         for (int i = 0; i < arr.length; i++) {
             if (max < arr[i]) {
                 max = arr[i];
@@ -108,11 +107,11 @@ public class Array {
         return max;
     }
 
-    public int findMinElement() throws ArrayNotExistExeption {
+    public long minElement() throws ArrayNotExsistExeption {
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
-        int min = arr[0];
+        long min = arr[0];
         for (int i = 0; i < arr.length; i++) {
             if (min > arr[i]) {
                 min = arr[i];
@@ -121,11 +120,11 @@ public class Array {
         return min;
     }
 
-    public List<Integer> getSimpleNumbers() throws ArrayNotExistExeption {
+    public List<Long> getSimpleNumbers() throws ArrayNotExsistExeption {
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
-        List<Integer> list = new ArrayList<>();
+        List<Long> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 1)
                 if (isPrimeNumber(arr[i])) {
@@ -135,8 +134,8 @@ public class Array {
         return list;
     }
 
-    private static boolean isPrimeNumber(int number) {
-        int sqrtNumber = (int) (Math.sqrt(number));
+    private static boolean isPrimeNumber(long number) {
+        long sqrtNumber = (long) (Math.sqrt(number));
         for (int i = 2; i <= sqrtNumber; i++) {
             if (number % i == 0)
                 return false;
@@ -144,16 +143,16 @@ public class Array {
         return true;
     }
 
-    public List<Integer> getThreeDigitsNumber() throws ArrayNotExistExeption {
+    public List<Long> getThreeDigitsNumber() throws ArrayNotExsistExeption {
         if (arr == null) {
-            throw new ArrayNotExistExeption("Массив не существует");
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
-        List<Integer> list = new ArrayList<>();
+        List<Long> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] > 99 && arr[i] < 1000) {
-                int first = arr[i] / 100;
-                int second = arr[i] / 10 % 10;
-                int third = arr[i] % 10;
+                long first = arr[i] / 100;
+                long second = arr[i] / 10 % 10;
+                long third = arr[i] % 10;
                 if (first != second && second != third && first != third) {
                     list.add(arr[i]);
                 }
@@ -162,19 +161,18 @@ public class Array {
         return list;
     }
 
-    public int[] fillArrayRandom(Random random) throws ArrayNotExistExeption {
-        if (arr == null){
-            throw new ArrayNotExistExeption("Массив не существует");
+    public void fillArrayRandom(Random random) throws ArrayNotExsistExeption {
+        if (arr == null) {
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = random.nextInt(30);
+            arr[i] = random.nextInt(arr.length);
         }
-        return arr;
     }
 
-    public int[] fillArrayScanner(Scanner scanner) throws ArrayNotExistExeption {
-        if (arr == null){
-            throw new ArrayNotExistExeption("Массив не существует");
+    public void fillArrayScanner(Scanner scanner) throws ArrayNotExsistExeption {
+        if (arr == null) {
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
         for (int i = 0; i < arr.length; i++) {
             while (!scanner.hasNextInt()) {
@@ -182,25 +180,21 @@ public class Array {
             }
             arr[i] = scanner.nextInt();
         }
-        return arr;
     }
 
-    public int[] fillArrayFromFile(File file) throws FileNotFoundException, ArrayNotExistExeption {
-        if (arr == null){
-            throw new ArrayNotExistExeption("Массив не существует");
+    public void fillArrayFromFile(File file) throws IOException, ArrayNotExsistExeption {
+        if (arr == null) {
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
-        Scanner scanner = new Scanner(new FileReader(file));
-        for (int j = 0; scanner.hasNextInt(); j++) {
-            arr[j] = scanner.nextInt();
-        }
-        return arr;
+
+
     }
 
-    public List<Integer> getNumbersFibonacci() throws ArrayNotExistExeption {
-        if (arr == null){
-            throw new ArrayNotExistExeption("Массив не существует");
+    public List<Long> getFibonacciNumbers() throws ArrayNotExsistExeption {
+        if (arr == null) {
+            throw new ArrayNotExsistExeption("Массив не существует");
         }
-        List<Integer> list = new ArrayList<>();
+        List<Long> list = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             if (isPerfectSquare((5 * arr[i] * arr[i] + 4)) ||
                     isPerfectSquare((5 * arr[i] * arr[i] - 4))) {
@@ -210,16 +204,16 @@ public class Array {
         return list;
     }
 
-    private boolean isPerfectSquare(int x) {
-        int s = (int) Math.sqrt(x);
+    private boolean isPerfectSquare(long x) {
+        long s = (long) Math.sqrt(x);
         return (s * s == x);
     }
 
-    public int[] getArr() {
+    public long[] getArr() {
         return arr;
     }
 
-    public void setArr(int[] arr) {
+    public void setArr(long[] arr) {
         this.arr = arr;
     }
 
@@ -248,11 +242,12 @@ public class Array {
             return 0;
 
         int result = 1;
-        for (int element : arr)
-            result = 31 * result + element;
+        for (long element : arr)
+            result = (int)(31 * result + element);
 
         return result;
     }
+
 
     @Override
     public String toString() {
