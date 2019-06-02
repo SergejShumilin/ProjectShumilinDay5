@@ -2,9 +2,8 @@ package by.shumilin.task3.util;
 
 import by.shumilin.exception.ArrayNotExistException;
 
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Corrector {
@@ -15,8 +14,12 @@ public class Corrector {
         }
     }
 
-    public static void fillArrayFile(FileReader reader, List<String> strings) throws IOException {
-
+    public static void fillArrayFile(String[] strings, File file) throws IOException {
+        Scanner scanner = new Scanner(file);
+        int i = 0;
+        while (scanner.hasNext()) {
+                strings[i++] = scanner.next();
+        }
     }
 
     public static void changeLetter(String[] text, int k, char newChar) throws ArrayNotExistException {
@@ -25,10 +28,12 @@ public class Corrector {
         }
         char[] word;
         for (int i = 0; i < text.length; i++) {
-            if (text[i].length() >= k) {
-                word = text[i].toCharArray();
-                word[k - 1] = newChar;
-                text[i] = String.copyValueOf(word);
+            if (text[i]!=null) {
+                if (text[i].length() >= k) {
+                    word = text[i].toCharArray();
+                    word[k - 1] = newChar;
+                    text[i] = String.copyValueOf(word);
+                }
             }
         }
     }
@@ -39,7 +44,9 @@ public class Corrector {
             throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < strings.length; i++) {
-            strings[i] = strings[i].replaceAll(regex, text);
+            if (strings[i]!=null) {
+                strings[i] = strings[i].replaceAll(regex, text);
+            }
         }
     }
 
@@ -48,7 +55,9 @@ public class Corrector {
             throw new ArrayNotExistException("Массив не существует");
         }
         for (int i = 0; i < strings.length; i++) {
-            strings[i] = formatString(strings[i], lengthWord);
+            if (strings[i] != null) {
+                strings[i] = formatString(strings[i], lengthWord);
+            }
         }
     }
 

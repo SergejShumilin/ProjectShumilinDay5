@@ -1,7 +1,6 @@
 package by.shumilin.task1.entity;
 
 
-
 import by.shumilin.exception.ArrayNotExistException;
 
 import java.io.File;
@@ -11,15 +10,16 @@ import java.util.*;
 public class Array {
     private long[] arr;
 
-    public Array() {    }
+    public Array() {
+    }
 
-    public Array(long[] arr){
+    public Array(long[] arr) {
         this.arr = arr;
     }
 
     public void sortBubble() throws ArrayNotExistException {
         if (arr == null) {
-        throw new ArrayNotExistException("Массив не существует");
+            throw new ArrayNotExistException("Массив не существует");
         }
         for (int barrier = arr.length - 1; barrier > 0; barrier--) {
             for (int index = 0; index < barrier; index++) {
@@ -183,8 +183,15 @@ public class Array {
         if (arr == null) {
             throw new ArrayNotExistException("Массив не существует");
         }
-
-
+        Scanner scanner = new Scanner(file);
+        int j = 0;
+        while (scanner.hasNext()) {
+            if (!scanner.hasNextInt()) {
+                scanner.next();
+            } else {
+                arr[j++] = scanner.nextInt();
+            }
+        }
     }
 
     public List<Long> getFibonacciNumbers() throws ArrayNotExistException {
@@ -240,7 +247,7 @@ public class Array {
 
         int result = 1;
         for (long element : arr)
-            result = (int)(31 * result + element);
+            result = (int) (31 * result + element);
 
         return result;
     }
